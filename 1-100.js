@@ -138,7 +138,7 @@ let minute = '34';
 let second = '27';
 
 let result = year.concat('/',month,'/', day," ",hour,':', minute,':', second)
-// 빈칸을 채워주세요
+// 빈칸을 채워주세요.
 
 console.log(result);
 //출력 예시 : 2019/04/26 11:34:27
