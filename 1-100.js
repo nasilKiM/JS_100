@@ -165,6 +165,12 @@ console.log(s);
 
 //데이터
 //<여기에 class를 작성하세요.>
+function wizard(health, mana, armor){
+    this.health = health;
+    this.mana = mana;
+    this.armor = armor;
+}
+//클래스 구글링해서 개념공부 더 필요함...
 
 const x = new Wizard(545, 210, 10);
 console.log(x.health, x.mana, x.armor);
