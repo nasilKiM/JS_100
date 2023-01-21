@@ -261,3 +261,67 @@ if (n%3 == 0) {
 }else {
     console.log(n);
 }
+
+
+// =========================================================================
+
+// 15번. 자기소개
+// 신학기가 시작되고, 아이들이 돌아가면서 자기소개를 하기로 했습니다.
+// 만약 입력으로 '김다정'이라는 이름이 주어지면 "안녕하세요. 저는 김다정입니다."
+// 라고 출력하게 해주세요.
+
+const introduce = prompt("자기소개를 합니다")
+
+if(introduce == "김다정") {
+    console.log("안녕하세요. 저는 김다정입니다.");
+} else {
+    console.log("반갑습니다.");
+}
+
+// =========================================================================
+
+// 16번. 로꾸거
+// 문장이 입력되면 거꾸로 출력하는 프로그램을 만들어봅시다.
+
+const text = prompt('문장을 입력하세요.');
+function reverse(str) {
+    let result = '';
+    for(let i = str.length-1; i>=0; i--){
+        result = result + str[i];
+    }
+    return result;
+}
+console.log(reverse(text));
+
+// =========================================================================
+
+// 17번. 놀이기구 키 제한
+
+// 유주는 놀이공원 아르바이트 중입니다. 그런데 놀이기구마다 키 제한이 있습니다.
+// 유주가 담당하는 놀이기구는 키가 150cm 이상만 탈 수 있습니다.
+// 입력으로 키가 주어지면
+// 키가 150이 넘으면 YES를 틀리면 NO를 출력하는 프로그램을 작성하세요.
+
+const height = prompt('키가 어떻게 되세요?');
+if(height >= 150){
+    console.log(YES);
+}else {
+    console.log(NO);
+}
+
+// =========================================================================
+
+// 18번. 평균 점수
+// 영하네 반은 국어, 수학, 영어 시험을 보았습니다. 영하는 친구들의 평균 점수를 구해주기로 했습니다.
+// 공백으로 구분하여 세 과목의 점수가 주어지면 
+// 전체 평균 점수를 구하는 프로그램을 작성하세요. 
+// 단, 소숫점 자리는 모두 버립니다.
+
+const subjectScore = prompt('시험성적을 입력하세요')
+const subjectScoreArray = subjectScore.split('');
+let sum = 0;
+for(let i = 0; i<subjectScoreArray.length; i++){
+    sum += Number(subjectScoreArray[i]);
+}
+console.log(Math.floor(sum /subjectScoreArray.length ));
+
