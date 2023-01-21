@@ -165,18 +165,80 @@ console.log(s);
 
 //데이터
 //<여기에 class를 작성하세요.>
-function wizard(health, mana, armor){
+
+const Wizard = class Wizard {
+    constructor(health, mana, armor){
     this.health = health;
     this.mana = mana;
     this.armor = armor;
 }
-//클래스 구글링해서 개념공부 더 필요함...
+attack(){
+    console.log('파이어볼');
+}
+}
 
 const x = new Wizard(545, 210, 10);
-console.log(x.health, x.mana, x.armor);
+console.log('wizard의 능력은 ' +  x.health, x.mana, x.armor);
 x.attack();
 
 //출력
 // 545 210 10
 //파이어볼
 
+
+/* class관련 공부
+
+class MyClass {
+  // 여러 메서드를 정의할 수 있음
+    constructor() { ... }
+    method1() { ... }
+    method2() { ... }
+    method3() { ... }
+    ...
+}
+클래스를 만들고, new MyClass()를 호출 -> 정의한 메서드가 있는 객체 생성
+생성자 메서드 constructor()는 
+(1)객체의 기본 상태를 설정
+(2) new에 의해 자동으로 호출 -> 객체 초기화
+
+예시:
+class User {
+    constructor(name) {this.name = name;}
+    helloWorld() {alert(this.name);}
+}
+
+사용법:
+let user = new User("nasil");
+user.helloWorld();
+
+new User("nasil")를 호출 이후
+(1) 새로운 객체 생성
+(2) 넘겨받은 인수 & constructor 자동실행
+(3) 이때 인수 "nasil"이 this.name에 할당
+(4) user.helloWorld() 같은 객체 메서드를 호출
+
+
+* 클래스 => 함수!
+* 생성자 메소드와 동일
+* 클래스 내부에서 정의한 메소드는 User.prototype에 저장됨
+* 예시의 프로토타입에 메소드 갯수 : 2개 (constructor, helloWorld)
+
+*/
+
+// =========================================================================
+
+// 13번. 몇번째 행성인가요?
+// 우리 태양계를 이루고 있는 행성은 수성,금성,지구,화성,목성,토성,천왕성,해왕성으로
+// 총 8개입니다. 저희는 우리 태양계의 n번째 행성이 무엇인지 알고 싶습니다.
+// 입력으로 행성의 순서를 나타내는 숫자 n이 입력됩니다.
+// 출력으로 그 순서에 해당하는 행성의 이름을 출력해주세요.
+// 예를 들어 1이 입력되면, 첫번째 행성인 수성이 출력됩니다.
+
+/*
+<답>
+const planet = ['수성', '금성', '지구', '화성', '목성', '토성', '천왕성', '해왕성'];
+const n = prompt("몇번째 행성인가요?");
+console.log(planet[n-1]);
+
+>> prompt로 사용자의 입력값을 받는걸 깜빡잊고있었다...
+*/
