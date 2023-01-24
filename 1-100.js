@@ -317,11 +317,34 @@ if(height >= 150){
 // 전체 평균 점수를 구하는 프로그램을 작성하세요. 
 // 단, 소숫점 자리는 모두 버립니다.
 
-const subjectScore = prompt('시험성적을 입력하세요')
-const subjectScoreArray = subjectScore.split('');
+const subjectScore = prompt('국,영,수 시험성적을 차례로 입력하세요').split(" ");
+// 세 과목의 점수를 입력받고 빈칸을 기준으로 구분한다.
 let sum = 0;
-for(let i = 0; i<subjectScoreArray.length; i++){
-    sum += Number(subjectScoreArray[i]);
+for(let i=0; i<3; i++) {
+    sum += parseInt(subjectScore[i], 10);
 }
-console.log(Math.floor(sum /subjectScoreArray.length ));
+//parseInt는 string을 number로 만든다. parseInt(string, n진수);
+console.log(Math.floor(sum/3));
 
+// 그리고 sum 변수에 for 문을 돌려서 각 변수의 값들의 데이터 타입을
+// 10진수 형태의 숫자로 변환하고 그 값을 더해준다.
+// 합산 된 점수에서 3을 나누는데, 소숫점 버림을 위해 Math.floor 를 사용
+
+// =========================================================================
+
+// 19번. 제곱을 구하자
+// 공백으로 구분하여 두 숫자 a, b가 주어지면 a의 b승을 구하는 프로그램을 작성
+
+let 제곱 = prompt('숫자 두개를 입력하세요').split("");
+console.log(Math.pow(parseInt(제곱[0],10),parseInt(제곱[1],10)));
+// Math.pow(a,b) -> a의 b제곱을 구해준다.
+
+// =========================================================================
+
+// 20번. 몫과 나머지
+// 공백으로 구분하여 두 숫자가 주어집니다.
+// 두번째 숫자로 첫번째 숫자를 나누었을 떄 그 몫과 나머지를 공백으로 구분하여 출력
+
+const number = prompt('숫자 두개를 입력하세요')
+const numbers = number.split(' ')
+console.log(numbers[0]/numbers[1] , numbers[0]%numbers[1] )
