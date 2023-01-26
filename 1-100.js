@@ -438,3 +438,56 @@ console.log(planet[n3]);
 // 첫번째입력에서는 학생의 이름이 공백으로 구분되어 입력되고,
 // 두번째에는 그 학생의 수학 점수가 공백으로 구분되어 주어집니다.
 // 두 개를 합쳐 학생의 이름이 key이고 value가 수학 점수인 객체를 출력해주세요.
+
+const keys = prompt().split(" ");
+const values = prompt().split(" ");
+let obj = {};
+
+for (let i = 0; i < keys.length; i++) {
+  obj[keys[i]] = values[i]; // 이부분 이해가 잘 안됨..
+}
+
+console.log(obj);
+
+// =========================================================================
+
+// 28번. 2-gram
+// 2-gram이란 문자열에서 2개의 연속된 요소를 출력하는 방법입니다.
+// 예를 들어 'Javascript'를 2-gram으로 반복해본다면 다음과 같은 결과가 나옵니다.
+// 입력 : Javascript
+/*
+출력 : 
+Ja
+av
+va
+as
+sc
+cr
+ri
+ip
+pt
+
+입력으로 문자열이 주어지면 2-gram으로 출력하는 프로그램을 작성해주세요.
+*/
+
+// 문자열 + 반복문 + 2글자씩 나오게 반복
+
+const word = "java";
+for (let i = 0; i < word.length; i++) {
+  console.log(word[i], word[i + 1]);
+}
+
+// =========================================================================
+
+// 29번. 대문자만 지나가세요
+// 진구는 영어학원 알바를 하고있습니다.
+// 반 아이들은 알파벳 공부하는데,오늘은 대문자 쓰기 시험을 봤습니다.
+// 알파벳 하나만을 입력하고 그 알파벳이 대문자면 YES, 아니면 NO를 출력하게
+
+const alphabet = prompt("알파벳을 하나만 입력하세요");
+
+if (alphabet == alphabet.toUpperCase()) {
+  console.log("Yes");
+} else {
+  console.log("No");
+}
