@@ -541,3 +541,24 @@ O(n3)
 O(2n)
 
 */
+
+// =========================================================================
+
+// 35번.
+
+function one(n) {
+  function two(m) {
+    return m ** n;
+  }
+  return two;
+}
+
+const a = one(2);
+// 숫자 2가 function(n)<-에 들어감.
+// a가 함수니까 인자를 받아서 실행.
+const b = one(3);
+const c = one(4);
+
+console.log(a(10));
+console.log(b(10));
+console.log(c(10));
