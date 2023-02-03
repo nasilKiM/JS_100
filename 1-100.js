@@ -562,3 +562,113 @@ const c = one(4);
 console.log(a(10));
 console.log(b(10));
 console.log(c(10));
+
+// =========================================================================
+
+// 38번.
+
+// 점수를 받아서 상위 1등부터 3등까지 인원수를 체크하기
+
+const scores = ["97", "86", "75", "66", "55", "97", "85", "97", "97", "95"];
+scores.sort((a, b) => a - b);
+
+let score = [];
+let count01 = 0;
+
+while (score.length < 3) {
+  const value = scores.pop();
+
+  if (!score.includes(value)) {
+    score.push(value);
+  }
+  count01++;
+}
+
+console.log(count01);
+
+/* 먼저 scores array를 오름차순으로 정리하기 위해 sort로 a - b정렬을 한다 -> b - a 로 정렬하면 내림차순이 된다
+그럼 scores = ["55", "66", "75", "85", "86", "95", "97", "97", "97", "97"]
+높은 점수가 배열 뒷쪽으로 오게된다
+
+1,2,3위 점수를 pop으로 빼서 다른 변수에 배열로 저장하기 위해서
+score라는 배열을 선언했고
+score.length가 3이 되지 않을 때 해당 점수를 배열 뒤에서 pop하기로.
+
+여기까지만 하면 97만 3개 추출되기 때문에
+해당 점수가 score배열에 저장되어있지 않은 경우에만 score에 넣어달라는 의미로
+includes를 사용한다.
+
+score에 그 점수가 includes되어 있니? 확인하는 메소드다.
+부정형으로 묻기 위해 !를 붙여준다.
+이제 score = ["97", "95", "86"]
+
+우리가 원하는 값은 점수가 아니라 97, 95, 86점을 맞은 사람이 몇 명인지 구하는 것이기 때문에
+count를 0에서부터
+해당 while문이 몇 번 실행되었나 체크하기 위해 매 루프가 돌때마다 count를 1씩 더해준다 -> count ++
+count = 6이 나온다. 6명이 1,2,3위에 해당한다는 뜻이다.
+*/
+
+// =========================================================================
+
+// 39번.
+// 문장의 모든q를 e로 바꿔라
+
+let text01 = "hqllo my namq is hyqwon";
+let str = text.split("");
+console.log(str) >>
+  [
+    "h",
+    "e",
+    "l",
+    "l",
+    "o",
+    " ",
+    "m",
+    "y",
+    " ",
+    "n",
+    "a",
+    "m",
+    "e",
+    " ",
+    "i",
+    "s",
+    " ",
+    "h",
+    "y",
+    "e",
+    "w",
+    "o",
+    "n",
+  ];
+
+for (let i = 0; i < str.length; i++) {
+  if (str[i] === "q") {
+    str[i] = "e";
+  }
+}
+str.join("");
+
+//정답
+let text2 = "hqllo my namq is hyqwon";
+text2.split("q").join("e");
+
+// 심플하게 생각하자.....
+
+// =========================================================================
+
+// 40번.
+//무게 제한에 맞춰서 놀이기구에 탈 수 있는 인원수 계산하기
+
+const weightLimit = prompt("무게 제한을 입력해주세요.");
+const countMember = prompt("인원수를 입력해주세요.");
+let count = 0;
+let totalWeight = 0;
+
+for (let i = 0; i < countMember; i++) {
+  totalWeight = totalWeight + parseInt(prompt("몸무게를 입력해주세요."), 10);
+  if (totalWeight <= weightLimit) {
+    count++;
+  }
+}
+console.log(count);
