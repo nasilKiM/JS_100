@@ -672,3 +672,57 @@ for (let i = 0; i < countMember; i++) {
   }
 }
 console.log(count);
+
+// =========================================================================
+
+// 41번
+// 소수 판별기
+
+const num = prompt("숫자를 입력하세요.");
+
+function primeNumber(n) {
+  for (let i = 2; i < n; i++) {
+    if (n % i === 0) {
+      console.log("NO");
+      return false;
+    }
+  }
+  if (n === 1) {
+    console.log("NO");
+    return false;
+  }
+  console.log("YES");
+}
+
+primeNumber(num);
+
+/*
+for문으로 해당 숫자 이하의 숫자로 나눴을 때
+딱 떨어지면 소수가 아님 > NO
+
+단, 1로 나누면 다 나누어떨어지기 때문에 i가 2부터 시작함
+1을 숫자로 입력받을 경우는 따로 설정. 1은 소수가 아니니까 "NO"
+떨어지지 않음 소수 > YES
+*/
+
+// =========================================================================
+
+// 42번
+// 달, 월을 입력하면 2023년 해당 날짜가 무슨 요일인지 알려주기
+
+const day2 = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
+
+const month2 = "2";
+const date2 = "25";
+
+function solution(a, b) {
+  const newDay = new Date(`2023-${a}-${b}`);
+  console.log(day[newDay.getDay()]);
+}
+
+solution(month2, date2);
+
+/*
+getDay는 요일을 숫자로 반환함. sun이 0임.
+new Date에 저렇게 날짜를 넣어도 date정보 생김
+*/
