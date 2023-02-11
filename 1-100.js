@@ -792,3 +792,44 @@ function solution(n) {
   return array.reduce((acc, cur) => acc * cur, 0);
 }
 // 다른 풀이방법 고민해보기
+// 재귀함수 사용해서 풀이
+function solution2(n, a = 0, b = 0) {
+  return String(n).length == a ? b : solution2(n[a] * 1);
+}
+/*
+1씩 증가하는 구문 -> 재귀함수 solution2의 인자 중 하나(a+1)
+a는 0부터 시작해서 재귀함수를 돌면서 1씩 증가.
+문자열 n의 길이와 일치하면 반복 중단히고
+지금까지 더한 b를 반환..
+
+b : 0부터 시작해서 누적된 더한 수 
+그 수에 더해주는 수 -> string(n)[a]*1 : 자연수 n을 문자열화하고 문자열의 a번째 index를 숫자변환
+이때 a가 동일회차의 함수 인자에서 가져오지않고 직전회차의 a , 0부터 시작함
+
+ */
+
+// 다른 풀이방법2
+// do whilt 반복문
+function solution3(n) {
+  let answer = 0;
+  do {
+    answer += n % 10;
+    n = Math.floor(n / 10);
+  } while (n > 0);
+  return answer;
+}
+
+/*
+answer에 n에10나눈 나머지를 더함(일의자리부터)
+Math.Floor로 더한수를 제외 (ex. n이 4자리 숫자라면? -> 3자리숫자됨)
+n이 한자리숫자될때까지 반복 ->> 이하로 떨어지면 반복문 중단
+
+while로만 써도 가능할듯
+
+while(n > 0) {
+  answer += n%10;
+  n=Math.floor(n/10);
+}
+return answer
+
+*/
