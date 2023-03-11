@@ -848,3 +848,21 @@ const people = [
   ("이호", "01050443904"),
   ("이호준", "01050442903"),
 ];
+
+/* 배열에서 중복을 제거하는 방법
+
+1. set() 사용
+  : 유니크한 값만을 담을 수 있기 때문에 배열을 set형태로 만들어서 제거하고
+    배열안에서 전개연산자를 사용하여 (...) 중복이 제거된 배열을 만들거나
+    Array.from()을 사용하여 중복이 제거된 set
+*/
+let result01 = [...new Set(people)];
+
+let result02 = Array.from(new Set(people));
+
+/*
+2. filter(), indexOf() 사용
+3. reduce(), includes() 사용
+4. for() OR forEach(), includes() 사용
+5. Object.fromEntries(), map(), Object.keys() 사용
+*/
