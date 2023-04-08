@@ -553,15 +553,15 @@ function one(n) {
   return two;
 }
 
-const a = one(2);
+const a0 = one(2);
 // 숫자 2가 function(n)<-에 들어감.
 // a가 함수니까 인자를 받아서 실행.
-const b = one(3);
-const c = one(4);
+const b0 = one(3);
+const c0 = one(4);
 
-console.log(a(10));
-console.log(b(10));
-console.log(c(10));
+console.log(a0(10));
+console.log(b0(10));
+console.log(c0(10));
 
 // =========================================================================
 
@@ -866,3 +866,86 @@ let result02 = Array.from(new Set(people));
 4. for() OR forEach(), includes() 사용
 5. Object.fromEntries(), map(), Object.keys() 사용
 */
+
+// =========================================================================
+
+// 48번
+/*대소문자 바꿔서 출력하기 
+입력 : AAABBBcccddd
+출력 : aaabbbCCCDDD
+*/
+
+const abcd = prompt().split("");
+
+for (let i = 0; i < abcd.length; i++) {
+  // 입력받은 문자열을 나누어서 하나하나 비교해줌
+  // 대문자와 같으면 소문자로, 소문자랑 같으면 대문자로!
+  if (abcd[i] === abcd[i].toUpperCase()) {
+    abcd[i] = abcd[i].toLowerCase();
+  } else {
+    abcd[i] = abcd[i].toUpperCase();
+  }
+}
+// join해서 출력하기
+console.log(abcd.join(""));
+
+// 답안 정답...? (아래)
+// 빈배열에 대소문자를 바꾼 문자를 하나씩 추가해서
+// 마지막 배열요소들을 하나씩 더하는 방법으로 문제풀이함.
+
+let aaa = prompt("문자열을 입력하세요");
+let bbb = [];
+let ccc = "";
+
+for (let i = 0; i < aaa.length; i++) {
+  if (a[i] === aaa[i].toLowerCase()) {
+    bbb.push(aaa[i].toUpperCase);
+  } else {
+    bbb.push(aaa[i].toLowerCase());
+  }
+}
+for (let j = 0; j < bbb.length; j++) {
+  ccc += bbb[j];
+}
+
+console.log(ccc);
+
+// =========================================================================
+
+// 49번
+/* 최댓값 구하기
+순서가 없는 10개의 숫자가 공백으로 구분되어 주어진다.
+주어진 숫자들 중 최댓값을 반환하라.
+
+입출력
+입력 : 10 9 8 7 6 5 4 3 2 1
+출력 : 10
+
+*/
+
+// 입력받은 문자열을 공백기준으로 분리해서 배열에 넣기
+let num1 = prompt("10개의 숫자를 입력하세요").split("");
+
+let max = 0;
+
+// 배열의 Number로 바꾼 각 요소와 비교해서 요소가 max보다 크면 값을 max로 바꾸기
+for (let i = 0; i<num1.length; i++){
+  if (Number(num1[i] > max) {
+    max = Number(num1[i])
+  })
+}
+console.log(max);
+
+
+// 답안 정답...?! (아래)
+// map() 과 sort()를 활용해서 풀이함!!!! ---> 훨씬간편하게 품..
+
+let num2 = prompt('10개의 숫자를 입력하세요').split('').map((n)=>{
+  return parseInt(n, 10)
+})
+
+num2.sort((a,b)=>{
+  return b-a;
+});
+
+console.log(num2[0]);
